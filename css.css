@@ -1,0 +1,44 @@
+body {
+  background-color: rgb(184, 149, 152);
+  padding-top: 20px; 
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0%;
+
+}
+
+.image-container {
+  margin: 500px 0 0 3ch;
+  width: 300%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.image-container img{
+  width: 10%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid rgb(59, 7, 36);
+  transition: all ease-in-out 0.5s;
+}
+
+.image-container img:hover {
+  transform: scale(1.2);
+  z-index: 1;
+  width: 25%;
+  box-shadow: 0 0 10px rgba(228, 53, 91, 0.856);
+}
+
+div.gallery {
+  margin: 10px; /* add a 10px gap between images */
+  border: 1px solid #ccc; /* make the border sides thin */
+  border-radius: 40px; /* increase the border radius to 30 */
+  display: inline-block;
+  width: 180px;
+  height: 220px;
+  transition: transform 0.5s;
+}

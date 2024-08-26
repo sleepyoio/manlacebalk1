@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Animations</title>
+    <link rel="stylesheet" href="style.css">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Read More Feature</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+            margin: 0;
+            background-image: url(https://i.pinimg.com/564x/2b/32/2e/2b322ec34906567c0e85147225244fa1.jpg);
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+        }
+
+        .gallery-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; 
+        }
+
+        .gallery {
+            position: relative; 
+            border-radius: 30px;
+            width: 200px;
+            height: 500px;
+            transition: transform 0.5s;
+            overflow: hidden; 
+            background: rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(8px); 
+            border: 1px solid rgba(139, 34, 160, 0.548); 
+            font-weight: bold; 
+        }
+
+        .gallery:hover {
+            border: 1px solid rgba(255, 255, 255, 0.8); 
+            transform: scale(1.34); 
+        }
+
+        .gallery img { 
+            width: 100%;
+            height: auto; 
+            max-height: 400px; 
+            transition: opacity 0.5s;
+            border-radius: 30px 30px 0 0; 
+            object-fit: cover;
+        }
+
+        .gallery:hover img {
+            opacity: 0.8;
+        }
+
+        .desc {
+            padding: 15px;
+            text-align: center;
+            transition: background-color 0.5s;
+            position: relative; 
+            z-index: 1; 
+            color: #0b1b38; 
+            background: rgba(233, 217, 217, 0.014); 
+            border-radius: 0 0 30px 30px;
+            font-family: 'Times New Roman', Times, serif; 
+            flex-grow: 1; 
+        }
+
+        .more {
+            display: none; 
+            margin-top: 10px; 
+        }
+
+        .read-more {
+            color: rgba(129, 9, 153, 0.952); 
+            cursor: pointer; 
+            text-decoration: underline; 
+        }
+
+        .gallery:hover .desc {
+            background-color: rgba(206, 81, 158, 0.993); 
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-wrapper">
+        <div class="gallery">
+            <img src="ram.jpg" alt="Image 1">
+            <div class="desc">
+                RAM stands for Random Access Memory, and it is a type of volatile memory that stores data temporarily while a computer is powered on.
+                <span class="more"> Unlike permanent storage solutions like hard drives or SSDs, data in RAM is lost when the power is turned off. RAM enables quick read and write access to a storage medium, making it essential for the efficient operation of applications and processes.</span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="gpu.png" alt="Image 2">
+            <div class="desc">
+                A Graphics Processing Unit (GPU) is a specialized electronic circuit designed to accelerate the rendering of images and videos.
+                <span class="more"> It is primarily used for processing graphics and visual data, enabling smoother and more efficient performance in applications such as gaming, video editing, and 3D rendering. Unlike a Central Processing Unit (CPU), which handles general-purpose tasks</span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="monitor.png" alt="Image 3">
+            <div class="desc">
+                A monitor is an output device that displays visual information from a computer.
+                <span class="more"> It serves as the primary interface for users to interact with a computer's graphical user interface (GUI), allowing them to view images, videos, and other digital content. Monitors come in various sizes, resolutions, and technologies LED,LCD,OLED each offering different features and performance characteristics.. </span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="cpu.png" alt="Image 4">
+            <div class="desc">
+                The Central Processing Unit (CPU) is often referred to as the brain of the computer.
+                <span class="more"> The CPU interprets and executes commands from the operating system and applications, performing crucial tasks such as arithmetic calculations, logical operations, and data handling.</span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="ssd.png" alt="Image 5">
+            <div class="desc">
+                A Solid State Drive (SSD) is a type of storage device that uses flash memory to store data.
+                <span class="more"> SSDs store persistent data on semiconductor chips, enabling faster system startups, quicker file transfers, and reduced response times compared to HDDs. They are often used as the primary storage solution for operating systems and frequently accessed applications.</span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="PSU.png" alt="Image 6">
+            <div class="desc">
+                A Power Supply Unit (PSU) converts electrical power from an outlet into usable power for the computer.
+                <span class="more">   A built-in protections against surges, overheating, and shorts to ensure system stability and safety.</span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="ethernet.png" alt="Image 7">
+            <div class="desc">
+                An Ethernet cable is used to connect devices to a network.
+                <span class="more"> It provides a stable and efficient connection for internet access, file sharing, and communication.</span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMore(element) {
+            const moreText = element.previousElementSibling; 
+            if (moreText.style.display === "none" || moreText.style.display === "") {
+                moreText.style.display = "inline"; 
+                element.innerText = "Read Less"; 
+            } else {
+                moreText.style.display = "none"; 
+                element.innerText = "Read More"; 
+            }
+        }
+    </script>
+</body>
+</html>

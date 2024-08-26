@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Animations</title>
+    <link rel="stylesheet" href="style.css">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Read More Feature</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+            margin: 0;
+            background-image: url(https://i.pinimg.com/564x/31/7c/6e/317c6e9b819948375c955788d7377449.jpg);
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+        }
+
+        .gallery-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; 
+        }
+
+        .gallery {
+            position: relative; 
+            border-radius: 30px;
+            width: 200px;
+            height: 500px;
+            transition: 0.5s;
+            overflow: hidden; 
+            background: rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(7px); 
+            border: 2px solid rgba(64, 116, 194, 0.548); 
+            font-weight: bold; 
+        }
+
+        .gallery:hover {
+            border: 1px solid rgba(255, 255, 255, 0.8); 
+            transform: scale(1.34); 
+        }
+
+        .gallery img { 
+            width: 100%;
+            height: auto; 
+            max-height: 400px; 
+            transition:  0.5s;
+            border-radius: 30px 30px 0 0; 
+            object-fit: cover;
+        }
+
+        .gallery:hover img {
+            opacity: 0.8;
+        }
+
+        .desc {
+            padding: 15px;
+            text-align: center;
+            transition:  0.5s;
+            position: relative; 
+            z-index: 1; 
+            color: #210a46; 
+            background: rgba(233, 217, 217, 0.014); 
+            border-radius: 0 0 30px 30px;
+            font-family: 'Times New Roman', Times, serif; 
+            flex-grow: 1; 
+        }
+
+        .more {
+            display: none; 
+            margin-top: 10px; 
+        }
+
+        .read-more {
+            color: rgba(129, 9, 153, 0.952); 
+            cursor: pointer; 
+            text-decoration: underline; 
+        }
+
+        .gallery:hover .desc {
+            background-color: rgba(233, 143, 151, 0.993); 
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-wrapper">
+        <div class="gallery">
+            <img src="network operating.png" alt="Image 1">
+            <div class="desc">
+                A Network Operating System (NOS) is a software that manages and controls a computer network, providing network services and resources to connected devices.
+                <span class="more">It acts as an intermediary between the network hardware and the applications running on the devices, enabling communication, data transfer, and resource sharing. </span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="operating system.png" alt="Image 2">
+            <div class="desc">
+                An Operating System (OS) is a software that manages and controls a computer's hardware and software resources, providing a platform for running application programs.
+                <span class="more">It acts as an intermediary between the computer hardware and the user, enabling the user to interact with the computer in a convenient and efficient manner. An OS performs various functions, including process management &memory management.</span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="productivity software.png" alt="Image 3">
+            <div class="desc">
+                Productivity software is a type of application that helps individuals and organizations manage their time, tasks, and resources more efficiently, enabling them to achieve their goals and objectives
+                <span class="more"> Examples of productivity software include word processors like Microsoft Word, spreadsheet applications like Microsoft Excel, presentation software like PowerPoint. </span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="firewall.png" alt="Image 4">
+            <div class="desc">
+                Firewall software is a type of network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules.
+                <span class="more">It acts as a barrier between a trusted network and an untrusted network, such as the internet. </span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="EHR System.jpeg" alt="Image 5">
+            <div class="desc">
+                An Electronic Health Record (EHR) system is a type of healthcare information system that operates by storing, managing, and providing access to patient health information in a digital format.
+                <span class="more">Provides a platform for healthcare providers to document, manage, and share patient data, including medical history, medications, test results, and other relevant information.</span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="cloudgaming.png" alt="Image 6">
+            <div class="desc">
+                Cloud gaming,  a transformative approach to video gaming that allows players to enjoy games without the need for high-end hardware or local installations.  
+                <span class="more">Content is delivered over the internet, enabling users to play resource-intensive games on a variety of devices, including smartphones, tablets, and low-powered laptops.</span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+        <div class="gallery">
+            <img src="cloudbased.png" alt="Image 7">
+            <div class="desc">
+                Cloud-based software refers to applications and services that are hosted on remote servers and accessed via the internet rather than being installed locally on a user's device.
+                <span class="more"> This model allows users to utilize software without the need for extensive hardware or infrastructure, as the cloud provider manages the servers, storage, and maintenance.</span>
+                <span class="read-more" onclick="toggleMore(this)">Read More</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMore(element) {
+            const moreText = element.previousElementSibling; 
+            if (moreText.style.display === "none" || moreText.style.display === "") {
+                moreText.style.display = "inline"; 
+                element.innerText = "Read Less"; 
+            } else {
+                moreText.style.display = "none"; 
+                element.innerText = "Read More"; 
+            }
+        }
+    </script>
+</body>
+</html>
